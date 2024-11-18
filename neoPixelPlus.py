@@ -13,4 +13,11 @@ class neoPixelPlus(neopixel.NeoPixel)
 			tempPixelData = strip[0]
 			for index in range(length-1):
 				strip[index]=strip[index+1]
-			strip[length-1]=tempPixelData			
+			strip[length-1]=tempPixelData
+		else:
+			tempPixelData = strip[length-1]
+			for index in range (length-1, 0, -1): # for loop with three parameters -> (start, finish, increment)		
+				strip[index]=strip[index-1]
+			strip[0]=tempPixelData
+
+			
