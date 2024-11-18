@@ -1,23 +1,23 @@
 from microbit import *
 import neopixel
 
-class neoPixelPlus(neopixel.NeoPixel)
+class neoPixelPlus(neopixel.NeoPixel):
 	def __init__(self, pin, numPixels):
-		super().__init__(pin,numPixel)
+		super().__init__(pin,numPixels)
 		self.numPixels = numPixels
 
-	def rotate(strip, direction):
+	def rotate(self, direction):
 		length = self.numPixels
 		# Rotate pixels left
 		if (direction == -1):
-			tempPixelData = strip[0]
+			tempPixelData = self[0]
 			for index in range(length-1):
-				strip[index]=strip[index+1]
-			strip[length-1]=tempPixelData
+				self[index]=self[index+1]
+			self[length-1]=tempPixelData
 		else:
-			tempPixelData = strip[length-1]
-			for index in range (length-1, 0, -1): # for loop with three parameters -> (start, finish, increment)		
-				strip[index]=strip[index-1]
-			strip[0]=tempPixelData
+			tempPixelData = self[length-1]
+			for index in range(length-1, 0, -1): # for loop with three parameters -> (start, finish, increment)		
+				self[index]=self[index-1]
+			self[0]=tempPixelData
 
-			
+
